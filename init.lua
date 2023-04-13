@@ -172,9 +172,17 @@ require('lazy').setup({
 
   { -- sticky scroll
      'nvim-treesitter/nvim-treesitter-context',
-     dependencies = { 'nvim-treesitter' },
-   }
-
+     -- dependencies = { 'nvim-treesitter' },
+  },
+  {
+    'tzachar/cmp-tabnine',
+    build = './install.sh',
+    dependencies = 'hrsh7th/nvim-cmp'
+  },
+  {
+   "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  },
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -598,6 +606,7 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'cmp_tabnine' },
   },
 }
 
@@ -614,14 +623,14 @@ require('nvim-autopairs').setup({
 -- TabNine
 -- local tabnine = require('cmp_tabnine.config')
 -- tabnine:setup({max_lines = 1000, max_num_results = 20, sort = true})
-require('cmp_tabnine').setup({
-  disable_auto_comment=true,
-  accept_keymap="<TAB>",
-  dismiss_keymap = "<C-]>",
-  debounce_ms = 800,
-  suggestion_color = {gui = "#808080", cterm = 244},
-  execlude_filetypes = {"TelescopePrompt"}
-})
+-- require('cmp_tabnine').setup({
+--   disable_auto_comment=true,
+--   accept_keymap="<TAB>",
+--   dismiss_keymap = "<C-]>",
+--   debounce_ms = 800,
+--   suggestion_color = {gui = "#808080", cterm = 244},
+--   execlude_filetypes = {"TelescopePrompt"}
+-- })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
