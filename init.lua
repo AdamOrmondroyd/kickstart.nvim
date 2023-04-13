@@ -494,5 +494,27 @@ cmp.setup {
   },
 }
 
+-- Autopairs
+-- require("nvim-autopairs.completion.cmp").setup({
+--     map_cr = true,
+--     map_complete = true,
+--     auto_select = true
+-- })
+require('nvim-autopairs').setup({
+  disable_filetype = { "TelescopePrompt" , "vim" },
+})
+
+-- TabNine
+-- local tabnine = require('cmp_tabnine.config')
+-- tabnine:setup({max_lines = 1000, max_num_results = 20, sort = true})
+require('cmp_tabnine').setup({
+  disable_auto_comment=true,
+  accept_keymap="<TAB>",
+  dismiss_keymap = "<C-]>",
+  debounce_ms = 800,
+  suggestion_color = {gui = "#808080", cterm = 244},
+  execlude_filetypes = {"TelescopePrompt"}
+})
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
