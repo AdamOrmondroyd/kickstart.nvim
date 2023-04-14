@@ -203,6 +203,30 @@ require('lazy').setup({
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
+-- line numbers
+vim.o.relativenumber = true
+vim.o.number = true
+
+-- cursor line
+vim.o.cursorline = true
+
+-- split windows
+vim.o.splitright = true
+vim.o.splitbelow = true
+
+-- tabs and indentation
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+vim.o.autoindent = true
+
+-- backspace
+vim.o.backspace = "indent,eol,start"
+
+-- search settings
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
