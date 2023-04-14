@@ -220,6 +220,9 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.o.autoindent = true
 
+-- turn off wrapping
+vim.o.wrap = false
+
 -- backspace
 vim.o.backspace = "indent,eol,start"
 
