@@ -364,10 +364,10 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = '[G]it [F]iles' })
 
 -- nvim-tree shortcuts
-vim.keymap.set('n', '<leader>tt', ':NvimTreeToggle<CR>', { noremap=true, desc = '[T]ree [T]oggle' })
-vim.keymap.set('n', '<leader>tc', ':NvimTreeToggle<CR>', { noremap=true, desc = '[T]ree [C]lose' })
-vim.keymap.set('n', '<leader>tr', ':NvimTreeToggle<CR>', { noremap=true, desc = '[T]ree [R]efresh' })
-vim.keymap.set('n', '<leader>tf', ':NvimTreeToggle<CR>', { noremap=true, desc = '[T]ree [F]ocus' })
+vim.keymap.set('n', '<leader>tt', require('nvim-tree.api').tree.toggle, { desc = '[T]ree [T]oggle' })
+vim.keymap.set('n', '<leader>tc', require('nvim-tree.api').tree.close, { noremap=true, desc = '[T]ree [C]lose' })
+vim.keymap.set('n', '<leader>tr', require('nvim-tree.api').tree.reload, { noremap=true, desc = '[T]ree [R]efresh' })
+vim.keymap.set('n', '<leader>tf', require('nvim-tree.api').tree.focus, { noremap=true, desc = '[T]ree [F]ocus' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
