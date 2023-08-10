@@ -229,6 +229,9 @@ require('lazy').setup({
     config = function()
       require('maximize').setup{ default_keymaps=false }
     end,
+  },
+  {
+    'github/copilot.vim',
   }
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -668,7 +671,7 @@ cmp.setup {
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete {},
-    ['<Tab>'] = cmp.mapping.confirm {
+    ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
