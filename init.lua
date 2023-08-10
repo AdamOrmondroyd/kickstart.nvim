@@ -362,7 +362,12 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = '[G]it [F]iles' })
-vim.keymap.set('n', '<leader>t', ':NvimTreeToggle<CR>', { noremap=true, desc = '[T]oggle [T]ree' })
+
+-- nvim-tree shortcuts
+vim.keymap.set('n', '<leader>tt', ':NvimTreeToggle<CR>', { noremap=true, desc = '[T]ree [T]oggle' })
+vim.keymap.set('n', '<leader>tc', ':NvimTreeToggle<CR>', { noremap=true, desc = '[T]ree [C]lose' })
+vim.keymap.set('n', '<leader>tr', ':NvimTreeToggle<CR>', { noremap=true, desc = '[T]ree [R]efresh' })
+vim.keymap.set('n', '<leader>tf', ':NvimTreeToggle<CR>', { noremap=true, desc = '[T]ree [F]ocus' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
