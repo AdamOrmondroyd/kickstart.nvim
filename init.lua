@@ -227,9 +227,8 @@ require('lazy').setup({
   {
     'declancm/maximize.nvim',
     config = function()
-      require('maximize').setup()
+      require('maximize').setup{ default_keymaps=false }
     end,
-    default_keymaps = false
   }
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -380,7 +379,7 @@ vim.keymap.set('n', '<leader>tc', require('nvim-tree.api').tree.close, { noremap
 vim.keymap.set('n', '<leader>tr', require('nvim-tree.api').tree.reload, { noremap=true, desc = '[T]ree [R]efresh' })
 vim.keymap.set('n', '<leader>tf', require('nvim-tree.api').tree.focus, { noremap=true, desc = '[T]ree [F]ocus' })
 
-vim.keymap.set('n', '<Leader>o', require('maximize').toggle, { desc = '[M]aximize'})
+vim.keymap.set('n', '<Leader>z', require('maximize').toggle, { desc = 'maximi[Z]e'})
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
