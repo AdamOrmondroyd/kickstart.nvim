@@ -242,6 +242,10 @@ require('lazy').setup({
     config = function()
       require('maximize').setup{ default_keymaps=false }
     end,
+  },
+  {
+    'tzachar/highlight-undo.nvim',
+    opts = {},
   }
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -719,6 +723,25 @@ cmp.setup {
 -- })
 require('nvim-autopairs').setup({
   disable_filetype = { "TelescopePrompt" , "vim" },
+})
+
+require('highlight-undo').setup({
+  duration = 300,
+  undo = {
+    hlgroup = 'HighlightUndo',
+    mode = 'n',
+    lhs = 'u',
+    map = 'undo',
+    opts = {}
+  },
+  redo = {
+    hlgroup = 'HighlightUndo',
+    mode = 'n',
+    lhs = '<C-r>',
+    map = 'redo',
+    opts = {}
+  },
+  highlight_for_count = true,
 })
 
 -- TabNine
