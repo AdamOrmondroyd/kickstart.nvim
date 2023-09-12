@@ -246,7 +246,16 @@ require('lazy').setup({
   {
     'tzachar/highlight-undo.nvim',
     opts = {},
-  }
+  },
+  {
+    'f-person/git-blame.nvim',
+    config = function()
+      require('gitblame').setup {
+         --Note how the `gitblame_` prefix is omitted in `setup`
+        -- enabled = false,
+        }
+    end,
+  },
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
