@@ -20,6 +20,7 @@ return {
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
+    'mfussenegger/nvim-dap-python'
   },
   config = function()
     local dap = require 'dap'
@@ -64,8 +65,8 @@ return {
           pause = '⏸',
           play = '▶',
           step_into = '⏎',
-          step_over = '⏭',
           step_out = '⏮',
+          step_over = '⏭',
           step_back = 'b',
           run_last = '▶▶',
           terminate = '⏹',
@@ -83,5 +84,8 @@ return {
 
     -- Install golang specific config
     require('dap-go').setup()
+
+    require('dap-python').setup()
+    require('dap-python').test_runner = 'pytest'
   end,
 }
