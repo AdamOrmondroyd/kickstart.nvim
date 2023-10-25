@@ -412,7 +412,13 @@ vim.keymap.set('n', '<leader>tt', require('nvim-tree.api').tree.toggle, { desc =
 vim.keymap.set('n', '<leader>tc', require('nvim-tree.api').tree.close, { noremap=true, desc = '[T]ree [C]lose' })
 vim.keymap.set('n', '<leader>tr', require('nvim-tree.api').tree.reload, { noremap=true, desc = '[T]ree [R]efresh' })
 vim.keymap.set('n', '<leader>tf', require('nvim-tree.api').tree.focus, { noremap=true, desc = '[T]ree [F]ocus' })
-vim.keymap.set('n', '<Leader>z', require('maximize').toggle, { desc = 'maximi[Z]e'})
+vim.keymap.set('n', '<leader>z', require('maximize').toggle, { desc = 'maximi[Z]e'})
+
+-- diff shortcuts
+vim.keymap.set('n', '<leader>gv', '<cmd>Gvdiffsplit<cr>', { desc = '[G]it [V]diffsplit' })
+vim.keymap.set('n', '<leader>dgb', '<cmd>diffget BASE<cr>', { desc = '[D]iff [G]et [B]ASE' })
+vim.keymap.set('n', '<leader>dgl', '<cmd>diffget LOCAL<cr>', { desc = '[D]iff [G]et [L]COAL' })
+vim.keymap.set('n', '<leader>dgm', '<cmd>diffget REMOTE<cr>', { desc = '[D]iff [G]et [R]EMOTE' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
