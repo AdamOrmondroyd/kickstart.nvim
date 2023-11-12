@@ -426,9 +426,9 @@ vim.keymap.set('n', '<leader>z', require('maximize').toggle, { desc = 'maximi[Z]
 -- diff shortcuts
 vim.keymap.set('n', 'gv', '<cmd>Gvdiffsplit<cr>', { desc = '[G]it [V]diffsplit (normal mode)' })
 vim.keymap.set('n', '<leader>gv', '<cmd>Gvdiffsplit<cr>', { desc = '[G]it [V]diffsplit' })
-vim.keymap.set('n', 'dgb', '<cmd>diffget BASE<cr>', { desc = '[D]iff [G]et [B]ASE' })
-vim.keymap.set('n', 'dgl', '<cmd>diffget LOCAL<cr>', { desc = '[D]iff [G]et [L]OCAL' })
-vim.keymap.set('n', 'dgm', '<cmd>diffget REMOTE<cr>', { desc = '[D]iff [G]et [R]EMOTE' })
+vim.keymap.set('n', '<leader>dgb', '<cmd>diffget BASE<cr>', { desc = '[D]iff [G]et [B]ASE' })
+vim.keymap.set('n', '<leader>dgl', '<cmd>diffget LOCAL<cr>', { desc = '[D]iff [G]et [L]OCAL' })
+vim.keymap.set('n', '<leader>dgm', '<cmd>diffget REMOTE<cr>', { desc = '[D]iff [G]et [R]EMOTE' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
