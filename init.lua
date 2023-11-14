@@ -381,6 +381,8 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+vim.g.copilot_filetypes = {markdown = true}
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -846,7 +848,6 @@ require('highlight-undo').setup({
   },
   highlight_for_count = true,
 })
-
 -- TabNine
 -- local tabnine = require('cmp_tabnine.config')
 -- tabnine:setup({max_lines = 1000, max_num_results = 20, sort = true})
