@@ -480,6 +480,9 @@ vim.keymap.set('n', '<leader>dgb', '<cmd>diffget BASE<cr>', { desc = '[D]iff [G]
 vim.keymap.set('n', '<leader>dgl', '<cmd>diffget LOCAL<cr>', { desc = '[D]iff [G]et [L]OCAL' })
 vim.keymap.set('n', '<leader>dgr', '<cmd>diffget REMOTE<cr>', { desc = '[D]iff [G]et [R]EMOTE' })
 
+vim.keymap.set('n', '<leader>tn', '<cmd>tabnew<cr>', { desc = '[T]ab [N]ew' })
+vim.keymap.set('n', '<leader>tc', '<cmd>tabclose<cr>', { desc = '[T]ab [C]lose' })
+
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
 -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
@@ -710,7 +713,7 @@ require('which-key').register {
   ['<leader>h'] = { name = 'More git', _ = 'which_key_ignore' },
   ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
   ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-  ['<leader>t'] = { name = '[T]ree', _ = 'which_key_ignore' },
+  ['<leader>t'] = { name = '[T]ree/[T]ab', _ = 'which_key_ignore' },
   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
 }
 
