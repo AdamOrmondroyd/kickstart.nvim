@@ -311,6 +311,18 @@ require('lazy').setup({
         })
     end
   },
+<<<<<<< Updated upstream
+=======
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+    opts = {},
+    config = function(_, opts) require'lsp_signature'.setup(opts) end
+  },
+  {
+    'github/copilot.vim',
+  },
+>>>>>>> Stashed changes
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -876,6 +888,9 @@ cmp.setup {
     { name = 'path' },
   },
 }
+
+-- Signature help
+require "lsp_signature".setup()
 
 -- Autopairs
 -- require("nvim-autopairs.completion.cmp").setup({
