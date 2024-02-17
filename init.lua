@@ -283,12 +283,6 @@ require('lazy').setup({
     end,
   },
   {
-    'declancm/maximize.nvim',
-    config = function()
-      require('maximize').setup{ default_keymaps=false }
-    end,
-  },
-  {
     'tzachar/highlight-undo.nvim',
     opts = {},
   },
@@ -520,7 +514,6 @@ vim.keymap.set('n', '<leader>tt', require('nvim-tree.api').tree.toggle, { desc =
 vim.keymap.set('n', '<leader>tc', require('nvim-tree.api').tree.close, { noremap=true, desc = '[T]ree [C]lose' })
 vim.keymap.set('n', '<leader>tr', require('nvim-tree.api').tree.reload, { noremap=true, desc = '[T]ree [R]efresh' })
 vim.keymap.set('n', '<leader>tf', require('nvim-tree.api').tree.focus, { noremap=true, desc = '[T]ree [F]ocus' })
-vim.keymap.set('n', '<leader>z', require('maximize').toggle, { desc = 'maximi[Z]e'})
 
 -- diff shortcuts
 vim.keymap.set('n', 'gv', '<cmd>Gvdiffsplit<cr>', { desc = '[G]it [V]diffsplit (normal mode)' })
@@ -940,3 +933,21 @@ local function SuggestOneWord()
 end
 
 vim.keymap.set('i', '<C-\\>', SuggestOneWord, {expr = true, remap = false})
+
+function MaximizeToggle()
+  if vim.g.maximize_session then
+    vim.cmd('source ' .. vim.g.maximize_session)
+    os.remove(vim.g.maximize_session)
+    vim.g.maximize_session = nil
+    vim.o.hidden = vim.g.maximize_hidden_save
+    vim.g.maximize_hidden_save = nil
+  else
+    vim.g.maximize_hidden_save = vim.o.hidden
+    vim.g.maximize_session = vim.fn.tempname()
+    vim.o.hidden = true
+    vim.cmd('mksession! ' .. vim.g.maximize_session)
+    vim.cmd('only')
+  end
+end
+
+vim.keymap.set('n', '<leader>z', MaximizeToggle, {desc = 'maximi[Z]e'})
