@@ -104,7 +104,18 @@ require('lazy').setup({
     'hrsh7th/nvim-cmp',
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
-      'L3MON4D3/LuaSnip',
+      {
+        'L3MON4D3/LuaSnip',
+        build = (function()
+          -- Build Step is needed for regex support in snippets
+          -- This step is not supported in many windows environments
+          -- Remove the below condition to re-enable on windows
+          if vim.fn.has 'win32' == 1 then
+            return
+          end
+          return 'make install_jsregexp'
+        end)(),
+      },
       'saadparwaiz1/cmp_luasnip',
 
       -- Adds LSP completion capabilities
@@ -197,8 +208,13 @@ require('lazy').setup({
     -- Theme inspired by Atom
     'navarasu/onedark.nvim',
     priority = 1000,
+    lazy = false,
     config = function()
-      vim.cmd.colorscheme 'onedark'
+      require('onedark').setup {
+        -- Set a style preset. 'dark' is default.
+        style = 'dark', -- dark, darker, cool, deep, warm, warmer, light
+      }
+      require('onedark').load()
     end,
   },
 
@@ -209,7 +225,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'auto',
         component_separators = '|',
         section_separators = '',
       },
@@ -280,12 +296,6 @@ require('lazy').setup({
     },
     config = function()
       require("nvim-tree").setup {}
-    end,
-  },
-  {
-    'declancm/maximize.nvim',
-    config = function()
-      require('maximize').setup{ default_keymaps=false }
     end,
   },
   {
@@ -522,7 +532,6 @@ vim.keymap.set('n', '<leader>tt', require('nvim-tree.api').tree.toggle, { desc =
 vim.keymap.set('n', '<leader>tc', require('nvim-tree.api').tree.close, { noremap=true, desc = '[T]ree [C]lose' })
 vim.keymap.set('n', '<leader>tr', require('nvim-tree.api').tree.reload, { noremap=true, desc = '[T]ree [R]efresh' })
 vim.keymap.set('n', '<leader>tf', require('nvim-tree.api').tree.focus, { noremap=true, desc = '[T]ree [F]ocus' })
-vim.keymap.set('n', '<leader>z', require('maximize').toggle, { desc = 'maximi[Z]e'})
 
 -- diff shortcuts
 vim.keymap.set('n', 'gv', '<cmd>Gvdiffsplit<cr>', { desc = '[G]it [V]diffsplit (normal mode)' })
@@ -734,7 +743,9 @@ local on_attach = function(_, bufnr)
   end
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-  nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+  nmap('<leader>ca', function()
+    vim.lsp.buf.code_action { context = { only = { 'quickfix', 'refactor', 'source' } } }
+  end, '[C]ode [A]ction')
 
   nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
@@ -941,3 +952,21 @@ local function SuggestOneWord()
 end
 
 vim.keymap.set('i', '<C-\\>', SuggestOneWord, {expr = true, remap = false})
+
+function MaximizeToggle()
+  if vim.g.maximize_session then
+    vim.cmd('source ' .. vim.g.maximize_session)
+    os.remove(vim.g.maximize_session)
+    vim.g.maximize_session = nil
+    vim.o.hidden = vim.g.maximize_hidden_save
+    vim.g.maximize_hidden_save = nil
+  else
+    vim.g.maximize_hidden_save = vim.o.hidden
+    vim.g.maximize_session = vim.fn.tempname()
+    vim.o.hidden = true
+    vim.cmd('mksession! ' .. vim.g.maximize_session)
+    vim.cmd('only')
+  end
+end
+
+vim.keymap.set('n', '<leader>z', MaximizeToggle, {desc = 'maximi[Z]e'})
