@@ -1,3 +1,5 @@
+-- copilot
+--
 local function SuggestOneWord()
   local suggestion = vim.fn['copilot#Accept']("")
   local bar = vim.fn['copilot#TextQueuedForInsertion']()
