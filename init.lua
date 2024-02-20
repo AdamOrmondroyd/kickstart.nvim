@@ -288,17 +288,6 @@ require('lazy').setup({
     config = function() require("nvim-autopairs").setup {} end
   },
   {
-    "nvim-tree/nvim-tree.lua",
-    version = "*",
-    lazy = false,
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-      require("nvim-tree").setup {}
-    end,
-  },
-  {
     'tzachar/highlight-undo.nvim',
     opts = {},
   },
@@ -522,12 +511,6 @@ vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by 
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]resume' })
 
--- nvim-tree shortcuts
-vim.keymap.set('n', '<leader>tt', require('nvim-tree.api').tree.toggle, { desc = '[T]ree [T]oggle' })
-vim.keymap.set('n', '<leader>tc', require('nvim-tree.api').tree.close, { noremap=true, desc = '[T]ree [C]lose' })
-vim.keymap.set('n', '<leader>tr', require('nvim-tree.api').tree.reload, { noremap=true, desc = '[T]ree [R]efresh' })
-vim.keymap.set('n', '<leader>tf', require('nvim-tree.api').tree.focus, { noremap=true, desc = '[T]ree [F]ocus' })
-
 -- diff shortcuts
 vim.keymap.set('n', 'gv', '<cmd>Gvdiffsplit<cr>', { desc = '[G]it [V]diffsplit (normal mode)' })
 vim.keymap.set('n', '<leader>gv', '<cmd>Gvdiffsplit<cr>', { desc = '[G]it [V]diffsplit' })
@@ -612,107 +595,6 @@ vim.defer_fn(function()
   }
 end, 0)
 
-require'treesitter-context'.setup{
-    enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-    max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-    trim_scope = 'outer', -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
-    min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
-    patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
-        -- For all filetypes
-        -- Note that setting an entry here replaces all other patterns for this entry.
-        -- By setting the 'default' entry below, you can control which nodes you want to
-        -- appear in the context window.
-        default = {
-            'class',
-            'function',
-            'method',
-            'for',
-            'while',
-            'if',
-            'switch',
-            'case',
-            'interface',
-            'struct',
-            'enum',
-        },
-        -- Patterns for specific filetypes
-        -- If a pattern is missing, *open a PR* so everyone can benefit.
-        tex = {
-            'chapter',
-            'section',
-            'subsection',
-            'subsubsection',
-        },
-        haskell = {
-            'adt'
-        },
-        rust = {
-            'impl_item',
-
-        },
-        terraform = {
-            'block',
-            'object_elem',
-            'attribute',
-        },
-        scala = {
-            'object_definition',
-        },
-        vhdl = {
-            'process_statement',
-            'architecture_body',
-            'entity_declaration',
-        },
-        markdown = {
-            'section',
-        },
-        elixir = {
-            'anonymous_function',
-            'arguments',
-            'block',
-            'do_block',
-            'list',
-            'map',
-            'tuple',
-            'quoted_content',
-        },
-        json = {
-            'pair',
-        },
-        typescript = {
-            'export_statement',
-        },
-        yaml = {
-            'block_mapping_pair',
-        },
-        py = {
-            'def',
-            'try',
-
-        },
-        f90 = {
-            'module',
-            'subroutine',
-            'do',
-            'if'
-        }
-    },
-    exact_patterns = {
-        -- Example for a specific filetype with Lua patterns
-        -- Treat patterns.rust as a Lua pattern (i.e "^impl_item$" will
-        -- exactly match "impl_item" only)
-        -- rust = true,
-    },
-
-    -- [!] The options below are exposed but shouldn't require your attention,
-    --     you can safely ignore them.
-
-    zindex = 20, -- The Z-index of the context window
-    mode = 'topline',  -- Line used to calculate context. Choices: 'cursor', 'topline'
-    -- Separator between context and content. Should be a single character string, like '-'.
-    -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
-    -- separator = '-',
-}
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
