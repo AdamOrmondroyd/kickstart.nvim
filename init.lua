@@ -274,10 +274,6 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
-  { -- sticky scroll
-     'nvim-treesitter/nvim-treesitter-context',
-     -- dependencies = { 'nvim-treesitter' },
-  },
   {
     'tzachar/cmp-tabnine',
     build = './install.sh',
