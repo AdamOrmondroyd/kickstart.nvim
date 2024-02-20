@@ -5,6 +5,7 @@ local function SuggestOneWord()
 end
 
 vim.keymap.set('i', '<C-\\>', SuggestOneWord, {expr = true, remap = false})
+vim.g.copilot_filetypes = {markdown = true}
 
 return {
     'github/copilot.vim',
