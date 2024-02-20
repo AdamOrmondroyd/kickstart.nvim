@@ -327,9 +327,6 @@ require('lazy').setup({
     opts = {},
     config = function(_, opts) require'lsp_signature'.setup(opts) end
   },
-  {
-    'github/copilot.vim',
-  },
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -342,7 +339,7 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {})
 
 -- [[ Setting options ]]
@@ -944,14 +941,6 @@ require('highlight-undo').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
-
-local function SuggestOneWord()
-  local suggestion = vim.fn['copilot#Accept']("")
-  local bar = vim.fn['copilot#TextQueuedForInsertion']()
-  return vim.fn.split(bar,  [[[ .]\zs]])[1]
-end
-
-vim.keymap.set('i', '<C-\\>', SuggestOneWord, {expr = true, remap = false})
 
 function MaximizeToggle()
   if vim.g.maximize_session then
