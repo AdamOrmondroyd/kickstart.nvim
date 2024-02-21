@@ -279,39 +279,6 @@ require('lazy').setup({
     build = './install.sh',
     dependencies = 'hrsh7th/nvim-cmp'
   },
-  {
-   "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-  },
-  {
-    'tzachar/highlight-undo.nvim',
-    opts = {},
-  },
-  {
-    'f-person/git-blame.nvim',
-    config = function()
-      require('gitblame').setup {
-         --Note how the `gitblame_` prefix is omitted in `setup`
-        -- enabled = false,
-        }
-    end,
-  },
-  {
-    "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "VeryLazy",
-    config = function()
-        require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
-        })
-    end
-  },
-  {
-    "ray-x/lsp_signature.nvim",
-    event = "VeryLazy",
-    opts = {},
-    config = function(_, opts) require'lsp_signature'.setup(opts) end
-  },
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -772,37 +739,6 @@ cmp.setup {
   },
 }
 
--- Signature help
-require "lsp_signature".setup()
-
--- Autopairs
--- require("nvim-autopairs.completion.cmp").setup({
---     map_cr = true,
---     map_complete = true,
---     auto_select = true
--- })
-require('nvim-autopairs').setup({
-  disable_filetype = { "TelescopePrompt" , "vim" },
-})
-
-require('highlight-undo').setup({
-  duration = 300,
-  undo = {
-    hlgroup = 'HighlightUndo',
-    mode = 'n',
-    lhs = 'u',
-    map = 'undo',
-    opts = {}
-  },
-  redo = {
-    hlgroup = 'HighlightUndo',
-    mode = 'n',
-    lhs = '<C-r>',
-    map = 'redo',
-    opts = {}
-  },
-  highlight_for_count = true,
-})
 -- TabNine
 -- local tabnine = require('cmp_tabnine.config')
 -- tabnine:setup({max_lines = 1000, max_num_results = 20, sort = true})
