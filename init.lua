@@ -274,11 +274,6 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
-  {
-    'tzachar/cmp-tabnine',
-    build = './install.sh',
-    dependencies = 'hrsh7th/nvim-cmp'
-  },
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -734,22 +729,9 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-    { name = 'cmp_tabnine' },
     { name = 'path' },
   },
 }
-
--- TabNine
--- local tabnine = require('cmp_tabnine.config')
--- tabnine:setup({max_lines = 1000, max_num_results = 20, sort = true})
--- require('cmp_tabnine').setup({
---   disable_auto_comment=true,
---   accept_keymap="<TAB>",
---   dismiss_keymap = "<C-]>",
---   debounce_ms = 800,
---   suggestion_color = {gui = "#808080", cterm = 244},
---   execlude_filetypes = {"TelescopePrompt"}
--- })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
