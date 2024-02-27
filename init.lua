@@ -737,6 +737,7 @@ cmp.setup {
 -- vim: ts=2 sts=2 sw=2 et
 
 function MaximizeToggle()
+  require('nvim-tree.api').tree.close()
   if vim.g.maximize_session then
     vim.cmd('source ' .. vim.g.maximize_session)
     os.remove(vim.g.maximize_session)
