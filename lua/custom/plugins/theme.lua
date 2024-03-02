@@ -1,6 +1,12 @@
 -- theme and other ui
 
 return {
+  -- Show pending keybindings
+  {
+    'folke/which-key.nvim',
+    opts = {}
+  },
+
   -- Theme inspired by Atom
   {
     'navarasu/onedark.nvim',
