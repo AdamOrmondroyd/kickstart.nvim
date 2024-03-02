@@ -1,8 +1,8 @@
 -- theme and other ui
 
 return {
+  -- Theme inspired by Atom
   {
-    -- Theme inspired by Atom
     'navarasu/onedark.nvim',
     priority = 1000,
     lazy = false,
@@ -14,8 +14,8 @@ return {
       require('onedark').load()
     end,
   },
+  -- Set lualine as statusline
   {
-    -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
     opts = {
@@ -27,8 +27,8 @@ return {
       },
     },
   },
+  -- Add indentation guides even on blank lines
   {
-    -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help ibl`
