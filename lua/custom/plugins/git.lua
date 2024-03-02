@@ -1,4 +1,4 @@
--- plugins related to git
+-- Git related plugins
 
 -- Telescope live_grep in git root
 -- Function to find the git root directory based on the current buffer's path
@@ -38,6 +38,11 @@ vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
 vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
 
 return {
+  {
+    -- if fugitive is the git, rhubarb is the hub
+    'tpope/vim-fugitive',
+    'tpope/vim-rhubarb',
+  },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
