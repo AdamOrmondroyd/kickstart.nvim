@@ -4,17 +4,6 @@
 -- See the kickstart.nvim README for more information
 return {
   --
-  -- git blame
-  {
-    'f-person/git-blame.nvim',
-    config = function()
-      require('gitblame').setup {
-         --Note how the `gitblame_` prefix is omitted in `setup`
-        -- enabled = false,
-        }
-    end,
-  },
-  --
   -- Surround text with brackets
   {
     "kylechui/nvim-surround",

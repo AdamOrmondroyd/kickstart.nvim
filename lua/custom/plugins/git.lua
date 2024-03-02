@@ -38,13 +38,26 @@ vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
 vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
 
 return {
+  -- if fugitive is the git,
+  -- rhubarb is the hub
   {
-    -- if fugitive is the git, rhubarb is the hub
     'tpope/vim-fugitive',
     'tpope/vim-rhubarb',
   },
+  --
+  -- git blame
   {
-    -- Adds git related signs to the gutter, as well as utilities for managing changes
+    'f-person/git-blame.nvim',
+    config = function()
+      require('gitblame').setup {
+         --Note how the `gitblame_` prefix is omitted in `setup`
+        -- enabled = false,
+        }
+    end,
+  },
+  -- Adds git related signs to the gutter,
+  -- as well as utilities for managing changes
+  {
     'lewis6991/gitsigns.nvim',
     opts = {
       -- See `:help gitsigns.txt`
