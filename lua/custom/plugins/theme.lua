@@ -35,9 +35,11 @@ return {
     main = 'ibl',
     opts = {},
   },
+  -- indicate when line reaches 80 characters
   {
     "ecthelionvi/NeoColumn.nvim",
     opts = {
+      always_on = true,
       excluded_ft = {"text", "markdown", "rst", "lua"}
     },
   }
