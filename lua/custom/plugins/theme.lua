@@ -35,4 +35,10 @@ return {
     main = 'ibl',
     opts = {},
   },
+  {
+    "ecthelionvi/NeoColumn.nvim",
+    opts = {
+      excluded_ft = {"text", "markdown", "rst", "lua"}
+    },
+  }
 }
