@@ -1,12 +1,13 @@
 -- theme and other ui
 
 return {
+  --
   -- Show pending keybindings
   {
     'folke/which-key.nvim',
     opts = {}
   },
-
+  --
   -- Theme inspired by Atom
   {
     'navarasu/onedark.nvim',
@@ -20,6 +21,7 @@ return {
       require('onedark').load()
     end,
   },
+  --
   -- Set lualine as statusline
   {
     'nvim-lualine/lualine.nvim',
@@ -33,6 +35,7 @@ return {
       },
     },
   },
+  --
   -- Add indentation guides even on blank lines
   {
     'lukas-reineke/indent-blankline.nvim',
@@ -41,6 +44,7 @@ return {
     main = 'ibl',
     opts = {},
   },
+  --
   -- indicate when line reaches 80 characters
   {
     "ecthelionvi/NeoColumn.nvim",

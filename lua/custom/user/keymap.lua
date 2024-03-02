@@ -11,7 +11,7 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 vim.keymap.set('n', '<leader>;', ';', { noremap = true, desc = 'Repeat fFtT' })
 vim.keymap.set('n', ';', '<C-w>', { noremap = true })
---
+
 -- Terminal mode escape insert mode
 vim.keymap.set('t', '<esc>', '<C-\\><C-N>', { silent = true })
 
