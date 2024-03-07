@@ -4,6 +4,12 @@
 -- See the kickstart.nvim README for more information
 return {
   --
+  -- Detect tabstop and shiftwidth automatically
+  'tpope/vim-sleuth',
+  --
+  -- "gc" to comment visual regions/lines
+  'numToStr/Comment.nvim',
+  --
   -- Surround text with brackets
   {
     "kylechui/nvim-surround",
