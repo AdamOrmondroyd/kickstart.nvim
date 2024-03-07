@@ -8,7 +8,10 @@ return {
   'tpope/vim-sleuth',
   --
   -- "gc" to comment visual regions/lines
-  'numToStr/Comment.nvim',
+  {
+    'numToStr/Comment.nvim',
+    opts = {},
+  },
   --
   -- Surround text with brackets
   {
