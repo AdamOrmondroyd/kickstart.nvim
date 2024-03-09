@@ -1,7 +1,7 @@
 return {
   --
   -- LSP Configuration & Plugins
-    {
+  {
     'neovim/nvim-lspconfig',
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
