@@ -10,7 +10,6 @@ local servers = {
   ltex_ls = {},
   lua_language_server = {},
   pydocstyle = {},
-  pylint = {},
   pyproject_flake8 = {},
   python_lsp_server = {},
   shfmt = {},
