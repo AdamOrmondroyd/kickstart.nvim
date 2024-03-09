@@ -5,7 +5,6 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-  delve = {},
   json_lsp = {},
   ltex_ls = {},
   lua_language_server = {},
