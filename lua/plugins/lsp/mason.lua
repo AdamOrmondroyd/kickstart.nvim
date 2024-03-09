@@ -8,11 +8,7 @@ local servers = {
   json_lsp = {},
   ltex_ls = {},
   lua_language_server = {},
-  pydocstyle = {},
-  pyproject_flake8 = {},
   python_lsp_server = {},
-  shfmt = {},
-  stylua = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
