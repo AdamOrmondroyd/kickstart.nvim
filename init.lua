@@ -9,7 +9,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- load lazy.nvim
-require("lazy")
+require("lazyconfig")
 
 -- load user-defined functions and keymaps
 require("user")
