@@ -69,6 +69,7 @@ return {
   "williamboman/mason.nvim",
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
     "hrsh7th/nvim-cmp",
   },
   config = function()
@@ -101,5 +102,20 @@ return {
         }
       end,
     }
+
+    require("mason-tool-installer").setup({
+      ensure_installed = {
+        'debugpy',
+        'delve',
+        'json-lsp',
+        'ltex-ls',
+        'pylint',
+        'pydocstyle',
+        'pyproject-flake8',
+        'python-lsp-server',
+        'shfmt',
+        'stylua',
+      }
+    })
   end,
 }

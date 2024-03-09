@@ -4,9 +4,9 @@ return {
   'neovim/nvim-lspconfig',
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
+    --
     -- Automatically install LSPs to stdpath for neovim
-    { 'williamboman/mason.nvim', config = true },
-    'williamboman/mason-lspconfig.nvim',
+    'williamboman/mason.nvim',
     --
     -- Useful status updates for LSP
     { 'j-hui/fidget.nvim', opts = {} },
