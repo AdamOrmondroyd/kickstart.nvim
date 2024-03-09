@@ -40,15 +40,6 @@ return {
             file_status = true, -- displays file status (readonly, modified, etc)
             path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
           },
-          {
-            'diagnostics',
-            sources = {'nvim_lsp'},
-            sections = {'error', 'warn', 'info', 'hint'},
-            color_error = '#BF616A', -- changes diagnostic's error color
-            color_warn = '#EBCB8B', -- changes diagnostic's warn color
-            color_info = '#A3BE8C', -- changes diagnostic's info color
-            color_hint = '#88C0D0', -- changes diagnostic's hint color
-          },
         },
       }
     },
