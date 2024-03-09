@@ -5,10 +5,6 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-  json_lsp = {},
-  ltex_ls = {},
-  lua_language_server = {},
-  python_lsp_server = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
