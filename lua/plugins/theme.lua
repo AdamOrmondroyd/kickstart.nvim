@@ -1,4 +1,4 @@
--- theme and other ui
+-- theme and other straigtforward ui
 
 return {
   --
@@ -31,7 +31,7 @@ return {
         icons_enabled = true,
         theme = 'auto',
         component_separators = '|',
-        section_separators = '',
+        section_separators = { left = '', right = ''},
       },
       sections = {
         lualine_c = {
