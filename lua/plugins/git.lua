@@ -53,7 +53,7 @@ return {
          --Note how the `gitblame_` prefix is omitted in `setup`
         enabled = false,
       }
-      vim.keymap.set('n', '<leader>gb', ':GitBlameToggle<cr>', { desc = 'toggle git blame' })
+      vim.keymap.set('n', '<leader>gb', ':GitBlameToggle<cr>', { desc = '[G]it [B]lame toggle' })
     end,
   },
   -- Adds git related signs to the gutter,
