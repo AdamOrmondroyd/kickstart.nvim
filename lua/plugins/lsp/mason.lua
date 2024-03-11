@@ -106,7 +106,6 @@ return {
     require("mason-tool-installer").setup({
       ensure_installed = {
         'debugpy',
-        'delve',
         'json-lsp',
         'ltex-ls',
         'pylint',
