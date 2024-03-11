@@ -51,8 +51,9 @@ return {
     config = function()
       require('gitblame').setup {
          --Note how the `gitblame_` prefix is omitted in `setup`
-        -- enabled = false,
-        }
+        enabled = false,
+      }
+      vim.keymap.set('n', '<leader>gb', ':GitBlameToggle<cr>', { desc = 'toggle git blame' })
     end,
   },
   -- Adds git related signs to the gutter,
