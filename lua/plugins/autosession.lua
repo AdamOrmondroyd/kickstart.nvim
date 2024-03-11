@@ -5,9 +5,18 @@ return {
   config = function()
     local auto_session = require("auto-session")
 
+    local function change_nvim_tree_dir()
+      local nvim_tree = require("nvim-tree")
+      nvim_tree.change_dir(vim.fn.getcwd())
+    end
+
     auto_session.setup({
       auto_restore_enabled = false,
-      auto_session_suppress_dirs = { "~/", "~/Dev/", "~/Downloads", "~/Documents", "~/Desktop/" },
+      auto_session_suppress_dirs = {
+        "~/", "~/Downloads", "~/Documents", "~/Desktop/", "~/OneDrive",
+      },
+      pre_save_cmds = "NvimTreeClose",
+      post_restore_cmds = { change_nvim_tree_dir, "NvimTreeOpen" },
     })
 
     local keymap = vim.keymap
