@@ -28,7 +28,6 @@ return {
 
     -- Set buttons
     dashboard.section.buttons.val = {
-      dashboard.button("r", "󰁯  >  [R]estore [S]ession", "<cmd>SessionRestore<CR>"),
       dashboard.button("n", "  >  [N]ew File", "<cmd>ene<CR>"),
       dashboard.button("f", "󰱼  >  [S]earch [F]ile", "<cmd>Telescope find_files<CR>"),
       dashboard.button("g", "  >  [S]earch [G]rep", "<cmd>Telescope live_grep<CR>"),
