@@ -58,6 +58,7 @@ return {
       vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]resume' })
       vim.keymap.set('n', '<leader>sc', require('telescope.builtin').spell_suggest, { desc = '[S]pell [C]heck' })
       vim.keymap.set('n', '<leader>st', require('telescope.builtin').git_status, { desc = '[S]earch git s[T]atus' })
+      vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch [W]ord under cursor' })
     end,
   },
 
