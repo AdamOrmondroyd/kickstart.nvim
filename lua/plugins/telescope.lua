@@ -6,6 +6,7 @@ return {
     branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
+      'folke/todo-comments.nvim',
       -- Fuzzy Finder Algorithm which requires local dependencies to be built.
       -- Only load if `make` is available. Make sure you have the system
       -- requirements installed.
@@ -60,6 +61,7 @@ return {
       keymap.set('n', '<leader>sc', require('telescope.builtin').spell_suggest, { desc = '[S]pell [C]heck' })
       keymap.set('n', '<leader>st', require('telescope.builtin').git_status, { desc = '[S]earch git s[T]atus' })
       keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch [W]ord under cursor' })
+      keymap.set('n', '<leader>sd', "<cmd>TodoTelescope<cr>", { desc = '[S]earch to[D]o' })
     end,
   },
 
