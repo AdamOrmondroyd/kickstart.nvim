@@ -4,8 +4,8 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   keys = {
-    { "<leader>tn", '<cmd>tabnew<cr>', desc = '[T]ab [N]ew' },
-    { 'n', '<leader>tc', '<cmd>tabclose<cr>', desc = '[T]ab [C]lose' },
+    { "<leader>tn", "<cmd>tabnew<cr>", desc = "[T]ab [N]ew" },
+    { "<leader>tc", "<cmd>tabclose<cr>", desc = "[T]ab [C]lose" },
   },
   version = "*",
   opts = {
