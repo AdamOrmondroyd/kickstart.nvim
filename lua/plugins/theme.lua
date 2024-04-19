@@ -81,7 +81,7 @@ return {
     "ecthelionvi/NeoColumn.nvim",
     opts = {
       always_on = true,
-      excluded_ft = {"text", "markdown", "rst", "lua"}
+      excluded_ft = { "text", "markdown", "rst", "lua", "tex" }
     },
   }
 }
