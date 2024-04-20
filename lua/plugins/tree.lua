@@ -17,6 +17,10 @@ return {
     vim.keymap.set('n', '<leader>tr', require('nvim-tree.api').tree.reload, { noremap=true, desc = '[T]ree [R]efresh' })
     vim.keymap.set('n', '<leader>tf', require('nvim-tree.api').tree.focus, { noremap=true, desc = '[T]ree [F]ocus' })
     vim.keymap.set('n', '<leader>t.', '<cmd>NvimTreeFindFile<bar>NvimTreeOpen<CR>', { noremap=true, desc = '[T]ree [.]' })
-    require("nvim-tree").setup {}
+    require("nvim-tree").setup ({
+      view = {
+        side = "right"
+      }
+    })
   end,
 }
