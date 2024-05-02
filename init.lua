@@ -4,12 +4,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- load lazy.nvim
-require("lazyconfig")
-
--- load user-defined functions and keymaps
-require("user")
-
 -- line numbers
 vim.o.relativenumber = true
 vim.o.number = true
@@ -73,3 +67,9 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
+
+-- load lazy.nvim
+require("lazyconfig")
+
+-- load user-defined functions and keymaps
+require("user")
