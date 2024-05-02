@@ -13,9 +13,6 @@ return {
           markdown = true,
         }
       })
-      -- vim.keymap.set('i', '<C-\\>',
-      --   require("copilot.suggestion").accept_word()
-      -- )
     end,
   },
   --
