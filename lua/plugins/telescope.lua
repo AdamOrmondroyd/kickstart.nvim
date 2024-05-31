@@ -64,5 +64,4 @@ return {
       keymap.set('n', '<leader>sd', "<cmd>TodoTelescope<cr>", { desc = '[S]earch to[D]o' })
     end,
   },
-
 }
