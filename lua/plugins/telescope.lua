@@ -50,10 +50,16 @@ return {
           prompt_title = 'Live Grep in Open Files',
         }
       end
+      local function find_project_files(opts)
+        opts = opts or {}
+        local ok = pcall(builtin.git_files, opts)
+        if not ok then
+          builtin.find_files(opts)
+        end
+      end
       keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
       keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
-      keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles' })
-      keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+      keymap.set('n', '<leader>sf', find_project_files, { desc = '[S]earch [F]iles' })
       keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
