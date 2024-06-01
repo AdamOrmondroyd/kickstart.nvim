@@ -57,6 +57,7 @@ return {
           builtin.find_files(opts)
         end
       end
+      vim.api.nvim_create_user_command("Projectfiles", find_project_files, {})
       keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
       keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       keymap.set('n', '<leader>sf', find_project_files, { desc = '[S]earch [F]iles' })
