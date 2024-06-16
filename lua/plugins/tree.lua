@@ -19,7 +19,8 @@ return {
     vim.keymap.set('n', '<leader>t.', '<cmd>NvimTreeFindFile<bar>NvimTreeOpen<CR>', { noremap=true, desc = '[T]ree [.]' })
     require("nvim-tree").setup ({
       view = {
-        side = "right"
+        side = "right",
+        adaptive_size = true,
       }
     })
   end,
