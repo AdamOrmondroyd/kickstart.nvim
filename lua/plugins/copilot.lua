@@ -7,20 +7,18 @@ return {
     event = "InsertEnter",
     config = function()
       require("copilot").setup({
-        suggestion = { enabled = false },
-        panel = { enabled = false },
+        suggestion = {
+          auto_trigger = true,
+          keymap = {
+            accept = "<C-Right>",
+            accept_word = "<Right>",
+          },
+        },
+        -- panel = { enabled = true },
         filetypes = {
           markdown = true,
-        }
+        },
       })
     end,
-  },
-  --
-  -- copilot cmp interface
-  {
-    "zbirenbaum/copilot-cmp",
-    config = function ()
-      require("copilot_cmp").setup()
-    end
   },
 }

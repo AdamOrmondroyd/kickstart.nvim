@@ -66,7 +66,6 @@ return {
         end, { 'i', 's' }),
       },
       sources = {
-        { name = 'copilot' },
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
@@ -77,13 +76,7 @@ return {
           mode = "symbol_text",
           maxwidth = 50,
           ellipsis_char = "...",
-          symbol_map = {
-            Copilot = "",
-          },
         }),
-      },
-      experimental = {
-        ghost_text = true,
       },
     }
   end,
