@@ -9,25 +9,24 @@ return {
       local whichkey = require 'which-key'
       whichkey.setup {}
 
-    -- document keybindings
-    whichkey.register {
-      ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-      ['<leader>d'] = { name = '[D]ocument/[D]iff', _ = 'which_key_ignore' },
-      ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-      ['<leader>h'] = { name = 'Git [H]unk/[H]ighlight', _ = 'which_key_ignore' },
-      ['<leader>o'] = { name = '[O]bsidian', _ = 'which_key_ignore' },
-      ['<leader>r'] = { name = '[R]ename/[R]estore', _ = 'which_key_ignore' },
-      ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-      ['<leader>t'] = { name = '[T]ree/[T]ab', _ = 'which_key_ignore' },
-      ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-      ['<leader>x'] = { name = '[X]rouble', _ = 'which_key_ignore' },
-    }
-    -- register which-key VISUAL mode
-    -- required for visual <leader>hs (hunk stage) to work
-    whichkey.register({
-      ['<leader>'] = { name = 'VISUAL <leader>' },
-      ['<leader>h'] = { 'Git [H]unk' },
-    }, { mode = 'v' })
+      -- document keybindings
+      whichkey.add {
+        { "<leader>c", group = "[C]ode" },
+        { "<leader>d", group = "[D]ocument/[D]iff" },
+        { "<leader>g", group = "[G]it" },
+        { "<leader>h", group = "Git [H]unk/[H]ighlight" },
+        { "<leader>o", group = "[O]bsidian" },
+        { "<leader>r", group = "[R]ename/[R]estore" },
+        { "<leader>s", group = "[S]earch" },
+        { "<leader>t", group = "[T]ree/[T]ab" },
+        { "<leader>w", group = "[W]orkspace" },
+        { "<leader>x", group = "[X]rouble" },
+        { mode = "v", {
+            { "<leader>", group = "VISUAL <leader>" },
+            { "<leader>h", group = "Git [H]unk/[H]ighlight" },
+          },
+        }
+      }
     end,
   },
   --
