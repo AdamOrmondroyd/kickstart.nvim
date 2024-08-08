@@ -10,8 +10,8 @@ return {
         suggestion = {
           auto_trigger = true,
           keymap = {
-            accept = "<C-Right>",
-            accept_word = "<Right>",
+            accept_word = "<C-space>",
+            accept = "<C-enter>",
           },
         },
         -- panel = { enabled = true },
