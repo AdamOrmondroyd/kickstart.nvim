@@ -9,10 +9,14 @@
 return {
   -- NOTE: Yes, you can install new plugins here!
   'mfussenegger/nvim-dap',
+  keys = {
+    '<F5>',
+  },
   -- NOTE: And you can specify dependencies as well
   dependencies = {
     -- Creates a beautiful debugger UI
     'rcarriga/nvim-dap-ui',
+    'nvim-neotest/nvim-nio', -- dependency of nvim-dap-ui
 
     -- Installs the debug adapters for you
     'williamboman/mason.nvim',
@@ -20,6 +24,7 @@ return {
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
+    'mfussenegger/nvim-dap-python'
   },
   config = function()
     local dap = require 'dap'
@@ -38,7 +43,8 @@ return {
       -- online, please don't ask me how to install them :)
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
-        'delve',
+        -- 'delve',
+        'debugpy',
       },
     }
 
@@ -52,6 +58,16 @@ return {
       dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
     end, { desc = 'Debug: Set Breakpoint' })
 
+
+        vim.api.nvim_set_hl(0, 'DapBreakpoint', { ctermbg = 0, fg = '#993939', bg = '#31353f' })
+    vim.api.nvim_set_hl(0, 'DapLogPoint', { ctermbg = 0, fg = '#61afef', bg = '#31353f' })
+    vim.api.nvim_set_hl(0, 'DapStopped', { ctermbg = 0, fg = '#98c379', bg = '#31353f' })
+    vim.fn.sign_define('DapBreakpoint', { text='⏺ ', texthl='DapBreakpoint', linehl='', numhl='DapBreakpoint' })
+
+    vim.fn.sign_define('DapBreakpointCondition', { text='ﳁ', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl='DapBreakpoint' })
+    vim.fn.sign_define('DapBreakpointRejected', { text='', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl= 'DapBreakpoint' })
+    vim.fn.sign_define('DapLogPoint', { text='', texthl='DapLogPoint', linehl='DapLogPoint', numhl= 'DapLogPoint' })
+    vim.fn.sign_define('DapStopped', { text='', texthl='DapStopped', linehl='DapStopped', numhl= 'DapStopped' })
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
     dapui.setup {
@@ -64,8 +80,8 @@ return {
           pause = '⏸',
           play = '▶',
           step_into = '⏎',
-          step_over = '⏭',
           step_out = '⏮',
+          step_over = '⏭',
           step_back = 'b',
           run_last = '▶▶',
           terminate = '⏹',
@@ -83,5 +99,8 @@ return {
 
     -- Install golang specific config
     require('dap-go').setup()
+
+    require('dap-python').setup()
+    require('dap-python').test_runner = 'pytest'
   end,
 }
