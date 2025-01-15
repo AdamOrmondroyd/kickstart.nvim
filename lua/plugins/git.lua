@@ -62,6 +62,8 @@ return {
     'lewis6991/gitsigns.nvim',
     opts = {
       -- See `:help gitsigns.txt`
+      signcolumn=false,
+      numhl = true,
       signs = {
         add = { text = '+' },
         change = { text = '~' },
