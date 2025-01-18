@@ -48,13 +48,10 @@ return {
   -- git blame
   {
     'f-person/git-blame.nvim',
-    config = function()
-      require('gitblame').setup {
-         --Note how the `gitblame_` prefix is omitted in `setup`
-        enabled = false,
-      }
-      vim.keymap.set('n', '<leader>gb', ':GitBlameToggle<cr>', { desc = '[G]it [B]lame toggle' })
-    end,
+    opts = { enabled = false, },
+    keys = {
+      { '<leader>gb', ':GitBlameToggle<cr>', desc = '[G]it [B]lame toggle' },
+    },
   },
   -- Adds git related signs to the gutter,
   -- as well as utilities for managing changes
