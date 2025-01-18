@@ -113,6 +113,7 @@ return {
     },
     --
     -- Useful status updates for LSP
+    -- WARN: this plugin is frikkin slow
     { 'j-hui/fidget.nvim', opts = {} },
     --
     -- Additional lua configuration, makes nvim stuff amazing!
