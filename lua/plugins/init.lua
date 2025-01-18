@@ -37,7 +37,7 @@ return {
   -- Highlight undo
   {
     'tzachar/highlight-undo.nvim',
-    {
+    opts = {
       duration = 300,
       undo = {
         hlgroup = 'HighlightUndo',
