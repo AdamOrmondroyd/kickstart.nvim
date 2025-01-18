@@ -8,32 +8,23 @@ return {
   'tpope/vim-sleuth',
   --
   -- "gc" to comment visual regions/lines
-  {
-    'numToStr/Comment.nvim',
-    opts = {},
-  },
+  { 'numToStr/Comment.nvim', opts = {} },
   --
   -- Surround text with brackets
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
-    config = function()
-        require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
-        })
-    end,
+    opts = {},
   },
   --
   -- Autopair brackets
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    config = function()
-      require('nvim-autopairs').setup({
-        disable_filetype = { "TelescopePrompt" , "vim" },
-      })
-    end,
+    opts = {
+      disable_filetype = { "TelescopePrompt" , "vim" },
+    }
   },
   --
   --function signature help
@@ -41,9 +32,6 @@ return {
     "ray-x/lsp_signature.nvim",
     event = "VeryLazy",
     opts = {},
-    config = function()
-      require'lsp_signature'.setup()
-    end,
   },
   --
   -- Highlight undo
