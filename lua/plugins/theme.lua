@@ -22,9 +22,9 @@ return {
         { "<leader>w", group = "[W]orkspace" },
         { "<leader>x", group = "[X]rouble" },
         { mode = "v", {
-            { "<leader>", group = "VISUAL <leader>" },
-            { "<leader>h", group = "Git [H]unk/[H]ighlight" },
-          },
+          { "<leader>",  group = "VISUAL <leader>" },
+          { "<leader>h", group = "Git [H]unk/[H]ighlight" },
+        },
         }
       }
     end,
@@ -56,7 +56,7 @@ return {
         icons_enabled = true,
         theme = 'auto',
         component_separators = '|',
-        section_separators = { left = '', right = ''},
+        section_separators = { left = '', right = '' },
       },
       extensions = { 'nvim-tree', 'quickfix', 'trouble' },
       sections = {
@@ -64,7 +64,7 @@ return {
           {
             'filename',
             file_status = true, -- displays file status (readonly, modified, etc)
-            path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
+            path = 1,           -- 0 = just filename, 1 = relative path, 2 = absolute path
           },
         },
       }

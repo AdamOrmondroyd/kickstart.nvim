@@ -52,7 +52,8 @@ return {
   dependencies = {
     --
     -- Automatically install LSPs to stdpath for neovim
-    { 'williamboman/mason.nvim',
+    {
+      'williamboman/mason.nvim',
       opts = {
         ui = {
           icons = {
@@ -63,18 +64,19 @@ return {
         }
       }
     },
-    { "williamboman/mason-lspconfig.nvim",
+    {
+      "williamboman/mason-lspconfig.nvim",
       dependencies = { 'mason.nvim' },
       config = function()
         local masonlspconfig = require('mason-lspconfig')
         masonlspconfig.setup()
         masonlspconfig.setup_handlers({
           -- generic handler
-          function (server_name)
+          function(server_name)
             require('lspconfig')[server_name].setup({})
           end,
           -- targeted overrides
-          ["lua_ls"] = function ()
+          ["lua_ls"] = function()
             local lspconfig = require("lspconfig")
             lspconfig.lua_ls.setup {
               settings = {
@@ -90,13 +92,14 @@ return {
                 }
               }
             }
-           end,
+          end,
         })
       end,
     },
     --
     -- Automatically install LSPs to stdpath for neovim
-    { "WhoIsSethDaniel/mason-tool-installer.nvim",
+    {
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
       opts = {
         ensure_installed = {
           'debugpy',

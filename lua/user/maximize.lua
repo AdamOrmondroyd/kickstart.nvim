@@ -19,6 +19,6 @@ function MaximizeToggle()
   end
 end
 
-vim.keymap.set('n', '<leader>z', MaximizeToggle, {desc = 'maximi[Z]e'})
+vim.keymap.set('n', '<leader>z', MaximizeToggle, { desc = 'maximi[Z]e' })
 
 return {}
