@@ -74,11 +74,7 @@ return {
       yaml = {
         'block_mapping_pair',
       },
-      py = {
-        'def',
-        'try',
-      },
-      f90 = {
+      fortran = {
         'module',
         'subroutine',
         'do',
