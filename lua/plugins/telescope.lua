@@ -63,7 +63,10 @@ return {
       keymap.set('n', '<leader>sC', builtin.git_commits, { desc = '[S]earch [C]ommit' })
       keymap.set('n', '<leader>st', builtin.git_status, { desc = '[S]earch git s[T]atus' })
       keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch [W]ord under cursor' })
-      keymap.set('n', '<leader>sd', "<cmd>TodoTelescope<cr>", { desc = '[S]earch to[D]o' })
+      keymap.set('n', '<leader>sD', "<cmd>TodoTelescope<cr>", { desc = '[S]earch to[D]o' })
+      keymap.set('n', '<leader>sj', builtin.jumplist, { desc = '[S]earch [J]umplist' })
+      keymap.set('n', '<leader>sq', builtin.quickfix, { desc = '[S]earch [Q]uickfix' })
+      keymap.set('n', '<leader>sb', builtin.current_buffer_fuzzy_find, { desc = '[S]earch [B]uffer' })
     end,
   },
 }
