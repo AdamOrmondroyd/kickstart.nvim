@@ -39,6 +39,9 @@ return {
       require('onedark').setup {
         -- Set a style preset. 'dark' is default.
         style = 'dark', -- dark, darker, cool, deep, warm, warmer, light
+        colors = {
+          grey = '#9298a0',
+        }
       }
       require('onedark').load()
     end,
