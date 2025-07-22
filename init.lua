@@ -34,9 +34,6 @@ vim.o.smartcase = true
 -- Set highlight on search
 -- vim.o.hlsearch = false
 
--- Make line numbers default
-vim.wo.number = true
-
 -- Disable mouse mode
 vim.o.mouse = ''
 
@@ -52,7 +49,7 @@ vim.o.breakindent = true
 vim.o.undofile = true
 
 -- Keep signcolumn on by default
-vim.wo.signcolumn = 'yes'
+vim.o.signcolumn = 'yes'
 
 -- Decrease update time
 vim.o.updatetime = 50
