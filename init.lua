@@ -61,6 +61,12 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+-- inline error meѕsages have to be enabled now
+vim.diagnostic.config({
+    virtual_text = true,
+    severity_sort = true,
+})
+
 -- load lazy.nvim
 require("lazyconfig")
 
