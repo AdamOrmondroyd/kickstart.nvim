@@ -69,8 +69,8 @@ return {
       dependencies = { 'mason.nvim' },
       config = function()
         local masonlspconfig = require('mason-lspconfig')
-        masonlspconfig.setup()
-        masonlspconfig.setup_handlers({
+        masonlspconfig.setup({
+          handlers = {
           -- generic handler
           function(server_name)
             require('lspconfig')[server_name].setup({})
@@ -103,6 +103,7 @@ return {
               }
             }
           end,
+          }
         })
       end,
     },
