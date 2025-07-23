@@ -65,44 +65,30 @@ return {
       }
     },
     {
-      "williamboman/mason-lspconfig.nvim",
+      "mason-org/mason-lspconfig.nvim",
       dependencies = { 'mason.nvim' },
       config = function()
         local masonlspconfig = require('mason-lspconfig')
-        masonlspconfig.setup({
-          handlers = {
-          -- generic handler
-          function(server_name)
-            require('lspconfig')[server_name].setup({})
-          end,
-          -- targeted overrides
-          ["lua_ls"] = function()
-            local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup {
-              settings = {
-                Lua = {
-                  workspace = { checkThirdParty = false },
-                  telemetry = { enable = false },
-                  completion = { callSnipped = 'Replace', },
-                  diagnostics = {
-                    globals = { "vim" },
-                    -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-                    -- disable = { 'missing-fields' },
-                  }
-                }
+        masonlspconfig.setup({})
+        vim.lsp.config('lua_ls', {
+          settings = {
+            Lua = {
+              workspace = { checkThirdParty = false },
+              telemetry = { enable = false },
+              completion = { callSnipped = 'Replace', },
+              diagnostics = {
+                globals = { "vim" },
+                -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+                -- disable = { 'missing-fields' },
               }
             }
-          end,
-          ["ltex"] = function()
-            local lspconfig = require("lspconfig")
-            lspconfig["ltex"].setup {
-              settings = {
-                ltex = {
-                  language = "en-GB",
-                }
-              }
+          }
+        })
+        vim.lsp.config('ltex', {
+          settings = {
+            ltex = {
+              language = "en-GB",
             }
-          end,
           }
         })
       end,
@@ -115,7 +101,7 @@ return {
         ensure_installed = {
           'debugpy',
           'json-lsp',
-          'ltex-ls',
+          -- 'ltex-ls',  -- disable ltex for now
           'pylint',
           'pydocstyle',
           'pyproject-flake8',
