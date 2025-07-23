@@ -67,6 +67,9 @@ vim.diagnostic.config({
     severity_sort = true,
 })
 
+-- turn on digraphs
+vim.o.digraph = true
+
 -- load lazy.nvim
 require("lazyconfig")
 
