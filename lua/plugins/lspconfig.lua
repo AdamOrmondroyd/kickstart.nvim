@@ -108,6 +108,7 @@ return {
           'python-lsp-server',
           'shfmt',
           'stylua',
+          'typos-lsp',
         }
       }
     },
