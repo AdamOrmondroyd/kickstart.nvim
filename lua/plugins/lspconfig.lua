@@ -102,9 +102,6 @@ return {
           'debugpy',
           'json-lsp',
           -- 'ltex-ls',  -- disable ltex for now
-          'pylint',
-          'pydocstyle',
-          'pyproject-flake8',
           'python-lsp-server',
           'shfmt',
           'stylua',
