@@ -40,99 +40,101 @@ vim.api.nvim_create_autocmd('LspAttach',
       vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
         vim.lsp.buf.format()
       end, { desc = 'Format current buffer with LSP' })
-      
-      -- Enable built-in completion for Neovim 0.11+
-      local client = vim.lsp.get_client_by_id(args.data.client_id)
-      if client and client.supports_method('textDocument/completion') then
-        vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
-      end
     end,
   }
 )
 
 return {
   --
-  -- LSP Configuration using native vim.lsp.config (Neovim 0.11+)
-  {
-    'williamboman/mason.nvim',
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {
-      ui = {
-        icons = {
-          package_installed = "✓",
-          package_pending = "➜",
-          package_uninstalled = "✗",
-        },
+  -- LSP Configuration & Plugins
+  'neovim/nvim-lspconfig',
+  event = { "BufReadPre", "BufNewFile" },
+  dependencies = {
+    --
+    -- Automatically install LSPs to stdpath for neovim
+    {
+      'williamboman/mason.nvim',
+      opts = {
+        ui = {
+          icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗",
+          },
+        }
       }
-    }
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    dependencies = { 'mason.nvim' },
-    config = function()
-      require('mason-lspconfig').setup({
+    },
+    {
+      "williamboman/mason-lspconfig.nvim",
+      dependencies = { 'mason.nvim' },
+      config = function()
+        local masonlspconfig = require('mason-lspconfig')
+        masonlspconfig.setup()
+        masonlspconfig.setup_handlers({
+          -- generic handler
+          function(server_name)
+            require('lspconfig')[server_name].setup({})
+          end,
+          -- targeted overrides
+          ["lua_ls"] = function()
+            local lspconfig = require("lspconfig")
+            lspconfig.lua_ls.setup {
+              settings = {
+                Lua = {
+                  workspace = { checkThirdParty = false },
+                  telemetry = { enable = false },
+                  completion = { callSnipped = 'Replace', },
+                  diagnostics = {
+                    globals = { "vim" },
+                    -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+                    -- disable = { 'missing-fields' },
+                  }
+                }
+              }
+            }
+          end,
+          ["ltex"] = function()
+            local lspconfig = require("lspconfig")
+            lspconfig["ltex"].setup {
+              settings = {
+                ltex = {
+                  language = "en-GB",
+                }
+              }
+            }
+          end,
+        })
+      end,
+    },
+    --
+    -- Automatically install LSPs to stdpath for neovim
+    {
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
+      opts = {
         ensure_installed = {
-          'lua_ls',
-          -- 'pylsp',
+          'debugpy',
+          'json-lsp',
+          'ltex-ls',
+          'pylint',
+          'pydocstyle',
+          'pyproject-flake8',
+          'python-lsp-server',
+          'shfmt',
+          'stylua',
         }
-      })
-      
-      -- Configure LSP servers using native vim.lsp.config
-      vim.lsp.config('lua_ls', {
-        settings = {
-          Lua = {
-            workspace = { checkThirdParty = false },
-            telemetry = { enable = false },
-            completion = { callSnipped = 'Replace', },
-            diagnostics = {
-              globals = { "vim" },
-              -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              -- disable = { 'missing-fields' },
-            }
-          }
-        }
-      })
-      
-      -- ltex config for PhD thesis writing
-      vim.lsp.config('ltex', {
-        settings = {
-          ltex = {
-            language = "en-GB",
-            disabledRules = {
-              tex = { "SENTENCE_WHITESPACE" }
-            }
-          }
-        }
-      })
-      
-      -- Enable LSP servers
-      vim.lsp.enable('lua_ls')
-      vim.lsp.enable('ltex')
-    end,
-  },
-  --
-  -- Automatically install LSPs to stdpath for neovim
-  {
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    opts = {
-      ensure_installed = {
-        -- 'debugpy',
-        'codespell',
-        'json-lsp',
-        -- 'ltex-ls',
-        -- 'pylint',
-        -- 'pydocstyle',
-        -- 'pyproject-flake8',
-        -- 'python-lsp-server',
-        'ruff',
-        'shfmt',
-        'stylua',
-        'ty',
       }
-    }
-  },
-  --
-  -- Useful status updates for LSP
-  -- WARN: this plugin is frikkin slow
-  { 'j-hui/fidget.nvim', opts = {} },
+    },
+    --
+    -- Useful status updates for LSP
+    -- WARN: this plugin is frikkin slow
+    { 'j-hui/fidget.nvim', opts = {} },
+    --
+    -- Additional lua configuration, makes nvim stuff amazing!
+    {
+      'folke/neodev.nvim',
+      config = function()
+        require('neodev').setup()
+      end,
+    },
+  }
 }
