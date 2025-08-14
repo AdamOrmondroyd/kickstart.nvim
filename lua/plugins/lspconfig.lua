@@ -105,6 +105,7 @@ return {
           'python-lsp-server',
           'shfmt',
           'stylua',
+          'texlab',
           'typos-lsp',
         }
       }
