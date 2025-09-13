@@ -31,4 +31,8 @@ vim.keymap.set('n', '<leader>dgr', '<cmd>diffget REMOTE<cr>', { desc = '[D]iff [
 -- highlight search
 vim.keymap.set('n', '<leader>hl', '<cmd>set hlsearch!<cr>', { desc = '[H]igh [L]ight search' })
 
+-- tabs
+vim.keymap.set("<leader>tn", "<cmd>tabnew<cr>", {desc = "[T]ab [N]ew" })
+vim.keymap.set( "<leader>tc", "<cmd>tabclose<cr>", { desc = "[T]ab [C]lose" })
+
 return {}
