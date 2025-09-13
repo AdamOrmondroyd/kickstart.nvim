@@ -16,7 +16,7 @@ return {
     }
   },
   --
-  --function signature help
+  -- function signature help
   {
     "ray-x/lsp_signature.nvim",
     event = "VeryLazy",
