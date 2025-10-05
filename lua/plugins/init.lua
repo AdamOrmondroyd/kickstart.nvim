@@ -7,15 +7,6 @@ return {
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
   --
-  -- Autopair brackets
-  {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    opts = {
-      disable_filetype = { "TelescopePrompt", "vim" },
-    }
-  },
-  --
   -- function signature help
   {
     "ray-x/lsp_signature.nvim",
