@@ -32,7 +32,7 @@ return {
   --
   -- Theme inspired by Atom
   {
-    'navarasu/onedark.nvim',
+    'adamormondroyd/onedark.nvim',
     priority = 1000,
     lazy = false,
     config = function()
