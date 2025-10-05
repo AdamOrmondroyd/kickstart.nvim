@@ -113,7 +113,17 @@ return {
     --
     -- Useful status updates for LSP
     -- WARN: this plugin is frikkin slow
-    { 'j-hui/fidget.nvim', opts = {} },
+    { 
+      'j-hui/fidget.nvim',
+      opts = {
+        progress = {
+          suppress_on_insert = true,
+          display = {
+            done_ttl = 1,
+          },
+        },
+      }
+    },
     --
     -- Additional lua configuration, makes nvim stuff amazing!
     {
