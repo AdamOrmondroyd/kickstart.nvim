@@ -67,6 +67,9 @@ vim.diagnostic.config({
     severity_sort = true,
 })
 
+-- try scrolloff
+vim.o.scrolloff = 999
+
 -- load lazy.nvim
 require("lazyconfig")
 
