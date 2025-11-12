@@ -1,4 +1,4 @@
--- theme and other straigtforward ui
+-- theme and other straightforward ui
 
 return {
   --
