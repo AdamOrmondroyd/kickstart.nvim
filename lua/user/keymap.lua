@@ -13,7 +13,7 @@ vim.keymap.set({ 'n', 'v' }, '<leader>;', ';', { noremap = true, desc = 'Repeat 
 vim.keymap.set('n', ';', '<C-w>', { noremap = true })
 
 -- Terminal mode escape insert mode
-vim.keymap.set('t', '<esc>', '<C-\\><C-N>', { silent = true })
+vim.keymap.set('t', '<esc><esc>', '<C-\\><C-N>', { silent = true })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', function() vim.diagnostic.jump({count=-1, float=true}) end, { desc = 'Go to previous diagnostic message' })
