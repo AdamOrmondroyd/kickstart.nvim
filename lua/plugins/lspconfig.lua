@@ -1,3 +1,6 @@
+-- Set LSP log level to reduce log file size
+vim.lsp.set_log_level("WARN")  -- Only log warnings and errors (default is INFO)
+
 --
 -- autocmd which runs when a buffer is attached to a language server
 vim.api.nvim_create_autocmd('LspAttach',
@@ -113,14 +116,22 @@ return {
     --
     -- Useful status updates for LSP
     -- WARN: this plugin is frikkin slow
-    { 
+    {
       'j-hui/fidget.nvim',
+      event = "LspAttach",  -- Only load when LSP attaches
       opts = {
         progress = {
           suppress_on_insert = true,
+          ignore_done_already = true,
+          ignore_empty_message = true,
           display = {
-            done_ttl = 1,
+            done_ttl = 0.5,  -- Hide completed tasks quickly
+            progress_ttl = 1,  -- Show progress for max 1 second
+            render_limit = 5,  -- Limit number of messages rendered
           },
+        },
+        notification = {
+          override_vim_notify = false,  -- Don't override vim.notify to reduce overhead
         },
       }
     },
