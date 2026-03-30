@@ -1,5 +1,5 @@
 -- Set LSP log level to reduce log file size
-vim.lsp.set_log_level("WARN")  -- Only log warnings and errors (default is INFO)
+vim.lsp.log.set_level("WARN") -- Only log warnings and errors (default is INFO)
 
 --
 -- autocmd which runs when a buffer is attached to a language server
