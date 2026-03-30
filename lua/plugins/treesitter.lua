@@ -16,7 +16,7 @@ return {
     ensure_installed = {
       'c', 'cpp', 'fortran', 'go', 'lua', 'python',
       'rust', 'tsx', 'javascript', 'typescript',
-      'vimdoc', 'vim', 'bash', 'markdown'
+      'vimdoc', 'vim', 'bash', 'markdown', 'markdown_inline'
     },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
