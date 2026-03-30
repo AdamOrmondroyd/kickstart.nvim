@@ -132,6 +132,9 @@ return {
         },
         notification = {
           override_vim_notify = false,  -- Don't override vim.notify to reduce overhead
+          window = {
+            avoid = { "NvimTree" },
+          },
         },
       }
     },
