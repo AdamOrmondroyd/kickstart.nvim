@@ -105,7 +105,9 @@ return {
           'debugpy',
           'json-lsp',
           -- 'ltex-ls',  -- disable ltex for now
-          'python-lsp-server',
+          -- 'python-lsp-server',
+          'ruff',
+          'ty',
           'shfmt',
           'stylua',
           'texlab',
