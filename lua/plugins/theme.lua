@@ -83,10 +83,11 @@ return {
     opts = {},
   },
   --
-  -- indicate when line reaches 80 characters
+  -- indicate when line reaches 89 characters
   {
     "ecthelionvi/NeoColumn.nvim",
     opts = {
+      NeoColumn = "89",
       always_on = true,
       excluded_ft = { "text", "markdown", "rst", "lua", "tex" }
     },
