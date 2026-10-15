@@ -91,5 +91,11 @@ return {
       always_on = true,
       excluded_ft = { "text", "markdown", "rst", "lua", "tex" }
     },
+  },
+  --
+  -- highlight colour hex codes in that colour
+  {
+    'brenoprata10/nvim-highlight-colors',
+    opts = {},
   }
 }
